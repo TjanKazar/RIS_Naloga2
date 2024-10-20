@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Artikli>
+  <Artikel>
+    <Id>1</Id>
+    <Naziv>Spremenjeni artikel</Naziv>
+    <Cena>25,0</Cena>
+    <Zaloga>75</Zaloga>
+    <DobaviteljId>2</DobaviteljId>
+    <DatumZadnjeNabave>2024-10-20 18:52:21</DatumZadnjeNabave>
+  </Artikel>
+  <Artikel>
+    <Id>2</Id>
+    <Naziv>Artikel 2</Naziv>
+    <Cena>20.0</Cena>
+    <Zaloga>200</Zaloga>
+    <DobaviteljId>2</DobaviteljId>
+    <DatumZadnjeNabave>2024-10-20 18:52:21</DatumZadnjeNabave>
+  </Artikel>
+  <Artikel>
+    <Id>3</Id>
+    <Naziv>Artikel 3</Naziv>
+    <Cena>30.0</Cena>
+    <Zaloga>50</Zaloga>
+    <DobaviteljId>3</DobaviteljId>
+    <DatumZadnjeNabave>2024-10-20 18:52:21</DatumZadnjeNabave>
+  </Artikel>
+  <Artikel>
+    <Id>4</Id>
+    <Naziv>Artikel 4</Naziv>
+    <Cena>69.5</Cena>
+    <Zaloga>150</Zaloga>
+    <DobaviteljId>4</DobaviteljId>
+    <DatumZadnjeNabave>2024-10-20 18:52:21</DatumZadnjeNabave>
+  </Artikel>
+  <Artikel>
+    <Id>5</Id>
+    <Naziv>Artikel 5</Naziv>
+    <Cena>15.0</Cena>
+    <Zaloga>80</Zaloga>
+    <DobaviteljId>5</DobaviteljId>
+    <DatumZadnjeNabave>2024-10-20 18:52:21</DatumZadnjeNabave>
+  </Artikel>
+</Artikli>

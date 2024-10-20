@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dobavitelji>
+  <Dobavitelj>
+    <Id>1</Id>
+    <Naziv>Spremenjeni dobavitelj</Naziv>
+    <Naslov>Novi naslov</Naslov>
+    <DavcnaStevilka>87654321</DavcnaStevilka>
+    <Kontakt>novi@kontakt.com</Kontakt>
+    <Opis>Novi opis</Opis>
+  </Dobavitelj>
+  <Dobavitelj>
+    <Id>2</Id>
+    <Naziv>Dobavitelj 2</Naziv>
+    <Naslov>Naslov 2</Naslov>
+    <DavcnaStevilka>23456789</DavcnaStevilka>
+    <Kontakt>kontakt2@dobavitelj.com</Kontakt>
+    <Opis>Opis dobavitelja 2</Opis>
+  </Dobavitelj>
+  <Dobavitelj>
+    <Id>3</Id>
+    <Naziv>Dobavitelj 3</Naziv>
+    <Naslov>Naslov 3</Naslov>
+    <DavcnaStevilka>34567890</DavcnaStevilka>
+    <Kontakt>kontakt3@dobavitelj.com</Kontakt>
+    <Opis>Opis dobavitelja 3</Opis>
+  </Dobavitelj>
+  <Dobavitelj>
+    <Id>4</Id>
+    <Naziv>Dobavitelj 4</Naziv>
+    <Naslov>Naslov 4</Naslov>
+    <DavcnaStevilka>45678901</DavcnaStevilka>
+    <Kontakt>kontakt4@dobavitelj.com</Kontakt>
+    <Opis>Opis dobavitelja 4</Opis>
+  </Dobavitelj>
+  <Dobavitelj>
+    <Id>5</Id>
+    <Naziv>Dobavitelj 5</Naziv>
+    <Naslov>Naslov 5</Naslov>
+    <DavcnaStevilka>56789012</DavcnaStevilka>
+    <Kontakt>kontakt5@dobavitelj.com</Kontakt>
+    <Opis>Opis dobavitelja 5</Opis>
+  </Dobavitelj>
+</Dobavitelji>
