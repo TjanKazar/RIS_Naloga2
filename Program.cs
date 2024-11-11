@@ -4,11 +4,113 @@ using System.Xml.Linq;
 using System.IO;
 using System.Linq;
 using RIS_Naloga2;
+using System.Text;
+using System.Xml.Schema;
+using System.Xml;
+
+public class XmlSchemaValidator
+{
+	private readonly string _schemaPath;
+	private readonly List<string> _validationErrors;
+	private bool _isValid;
+
+	public XmlSchemaValidator(string schemaPath)
+	{
+		_schemaPath = schemaPath;
+		_validationErrors = new List<string>();
+		_isValid = true;
+	}
+
+	public (bool isValid, List<string> errors) ValidateXml(string xmlContent)
+	{
+		_validationErrors.Clear();
+		_isValid = true;
+
+		try
+		{
+			// Create XML Schema settings
+			var settings = new XmlReaderSettings();
+			settings.ValidationType = ValidationType.Schema;
+			settings.ValidationFlags |= XmlSchemaValidationFlags.ProcessSchemaLocation;
+			settings.ValidationFlags |= XmlSchemaValidationFlags.ReportValidationWarnings;
+
+			// Add event handler for validation errors
+			settings.ValidationEventHandler += ValidationEventHandler;
+
+			// Load XSD schema
+			using (var schemaReader = XmlReader.Create(_schemaPath))
+			{
+				var schema = XmlSchema.Read(schemaReader, ValidationEventHandler);
+				settings.Schemas.Add(schema);
+			}
+
+			// Validate XML
+			using (var stringReader = new StringReader(xmlContent))
+			using (var xmlReader = XmlReader.Create(stringReader, settings))
+			{
+				while (xmlReader.Read()) { }
+			}
+		}
+		catch (Exception ex)
+		{
+			_isValid = false;
+			_validationErrors.Add($"Fatal error: {ex.Message}");
+		}
+
+		return (_isValid, _validationErrors);
+	}
+
+	private void ValidationEventHandler(object sender, ValidationEventArgs e)
+	{
+		_isValid = false;
+		_validationErrors.Add($"{e.Severity}: {e.Message}");
+	}
+
+	public static string GenerateTestXml()
+	{
+		var xmlBuilder = new StringBuilder();
+		xmlBuilder.AppendLine("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+		xmlBuilder.AppendLine("<art:artikli xmlns:art=\"http://www.example.com/articles\">");
+		xmlBuilder.AppendLine("  <art:artikel dobavljiv=\"true\" tip=\"standard\">");
+		xmlBuilder.AppendLine("    <art:id>1</art:id>");
+		xmlBuilder.AppendLine("    <art:ime>Test Artikel</art:ime>");
+		xmlBuilder.AppendLine("    <art:cena>25.99</art:cena>");
+		xmlBuilder.AppendLine("    <art:zaloga>100</art:zaloga>");
+		xmlBuilder.AppendLine("    <art:dobaviteljId>2</art:dobaviteljId>");
+		xmlBuilder.AppendLine("    <art:datumZadnjeNabave>2024-11-11T10:00:00</art:datumZadnjeNabave>");
+		xmlBuilder.AppendLine("  </art:artikel>");
+		xmlBuilder.AppendLine("</art:artikli>");
+
+		return xmlBuilder.ToString();
+	}
+
+	public static string GenerateInvalidTestXml()
+	{
+		var xmlBuilder = new StringBuilder();
+		xmlBuilder.AppendLine("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+		xmlBuilder.AppendLine("<art:artikli xmlns:art=\"http://www.example.com/articles\">");
+		xmlBuilder.AppendLine("  <art:artikel dobavljiv=\"true\" tip=\"\">");  // Invalid tip (empty string)
+		xmlBuilder.AppendLine("    <art:id>1</art:id>");
+		xmlBuilder.AppendLine("    <art:ime></art:ime>");  // Invalid ime (empty)
+		xmlBuilder.AppendLine("    <art:cena>-25.99</art:cena>");  // Invalid cena (negative)
+		xmlBuilder.AppendLine("    <art:zaloga>-10</art:zaloga>");  // Invalid zaloga (negative)
+		xmlBuilder.AppendLine("    <art:dobaviteljId>2</art:dobaviteljId>");
+		xmlBuilder.AppendLine("    <art:datumZadnjeNabave>invalid-date</art:datumZadnjeNabave>");  // Invalid date format
+		xmlBuilder.AppendLine("  </art:artikel>");
+		xmlBuilder.AppendLine("</art:artikli>");
+
+		return xmlBuilder.ToString();
+	}
+}
+
 
 class Program
 {
 	static string currentDir = Path.Combine(Directory.GetCurrentDirectory(), "..", "..", "..");
 	static string artikliFileName = "artikli.xml";
+	static string artikelShemaPath = Path.Combine(currentDir, "ArtikelSchema.xsd");
+	static string dobaviteljShemaPath = Path.Combine(currentDir, "DobaviteljSchema.xsd");
+
 	static string dobaviteljiFileName = "dobavitelji.xml";
 
 	static void Main(string[] args)
@@ -71,13 +173,53 @@ class Program
 		{
 			Id = 67,
 			Naziv = "Nov Artikel",
-			Cena = 25.99m,
+			Cena = 1m,
 			Zaloga = 100,
 			DobaviteljId = 1,
 			DatumZadnjeNabave = DateTime.Now
 		};
 		ProgramExtensions.DodajArtikel(novArtikel);
-	}
+
+
+		// 4. naloga testi
+
+		var validator = new XmlSchemaValidator(artikelShemaPath);
+
+		Console.WriteLine("Validating valid XML...");
+		var validXml = XmlSchemaValidator.GenerateTestXml();
+		var (isValid, errors) = validator.ValidateXml(validXml);
+
+		if (isValid)
+		{
+			Console.WriteLine("XML is valid according to the schema.");
+		}
+		else
+		{
+			Console.WriteLine("XML validation errors:");
+			foreach (var error in errors)
+			{
+				Console.WriteLine($"- {error}");
+			}
+		}
+
+		Console.WriteLine("\nValidating invalid XML...");
+		var invalidXml = XmlSchemaValidator.GenerateInvalidTestXml();
+		(isValid, errors) = validator.ValidateXml(invalidXml);
+
+		if (isValid)
+		{
+			Console.WriteLine("XML is valid according to the schema.");
+		}
+		else
+		{
+			Console.WriteLine("XML validation errors:");
+			foreach (var error in errors)
+			{
+				Console.WriteLine($"- {error}");
+			}
+		}
+	
+}
 
 	static void ShraniArtikle(List<Artikel> artikli)
 	{
