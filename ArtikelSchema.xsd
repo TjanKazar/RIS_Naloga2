@@ -4,52 +4,96 @@
            targetNamespace="http://www.example.com/articles"
            elementFormDefault="qualified">
 
-	<xs:simpleType name="tipArtikla">
+	<!-- Uvoz zunanjega tipa za artikelStatus  -->
+	<xs:import namespace="http://www.example.com/common" schemaLocation="CommonTypes.xsd"/>
+
+	<!-- Definicija lastnega tipa za artikel kategorijo -->
+	<xs:simpleType name="ArtikelKategorija">
 		<xs:restriction base="xs:string">
-			<xs:minLength value="1"/>
-			<xs:maxLength value="50"/>
+			<xs:pattern value="[A-Z][a-z]+"/>
 		</xs:restriction>
 	</xs:simpleType>
 
-	<xs:complexType name="artikelType">
-		<xs:sequence>
-			<xs:element name="id" type="xs:int"/>
-			<xs:element name="ime">
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:minLength value="1"/>
-						<xs:maxLength value="100"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="cena">
-				<xs:simpleType>
-					<xs:restriction base="xs:decimal">
-						<xs:minInclusive value="0"/>
-						<xs:fractionDigits value="2"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="zaloga">
-				<xs:simpleType>
-					<xs:restriction base="xs:int">
-						<xs:minInclusive value="0"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="dobaviteljId" type="xs:int"/>
-			<xs:element name="datumZadnjeNabave" type="xs:dateTime"/>
-		</xs:sequence>
-		<xs:attribute name="dobavljiv" type="xs:boolean" use="required"/>
-		<xs:attribute name="tip" type="art:tipArtikla" use="required"/>
+	<!-- Razširitev kompleksnega tipa ArtikelType z dodatnimi elementi -->
+	<xs:complexType name="RazsirenArtikelType">
+		<xs:complexContent>
+			<xs:extension base="art:ArtikelType">
+				<xs:sequence>
+					<xs:element name="Kategorija" type="art:ArtikelKategorija"/>
+					<xs:element name="ProizvodjaArtikla" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:maxLength value="100"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="PovprecnaOcena" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:decimal">
+								<xs:minInclusive value="1"/>
+								<xs:maxInclusive value="5"/>
+								<xs:fractionDigits value="1"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="PovprecnaCena" type="xs:decimal"/>
+				</xs:sequence>
+				<xs:attribute name="ArtikelbId" type="xs:ID" use="required"/>
+				<xs:attribute name="Status" type="art:ArtikelStatus" use="required"/>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
-	<xs:element name="artikel" type="art:artikelType"/>
+	<!-- Redefinicija osnovnega tipa ArtikelType -->
+	<xs:redefine schemaLocation="ArtikelSchema.xsd">
+		<xs:complexType name="ArtikelType">
+			<xs:complexContent>
+				<xs:restriction base="art:ArtikelType">
+					<xs:sequence>
+						<xs:element name="id" type="xs:int"/>
+						<xs:element name="ime">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:minLength value="3"/>
+									<xs:maxLength value="50"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="cena">
+							<xs:simpleType>
+								<xs:restriction base="xs:decimal">
+									<xs:minInclusive value="0.01"/>
+									<xs:maxInclusive value="10000"/>
+									<xs:fractionDigits value="2"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="zaloga">
+							<xs:simpleType>
+								<xs:restriction base="xs:int">
+									<xs:minInclusive value="0"/>
+									<xs:maxInclusive value="10000"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="dobaviteljId" type="xs:int"/>
+						<xs:element name="datumZadnjeNabave" type="xs:dateTime"/>
+					</xs:sequence>
+					<xs:attribute name="dobavljiv" type="xs:boolean" use="required"/>
+					<xs:attribute name="tip" type="art:ArtikelTip" use="required"/>
+				</xs:restriction>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
 
-	<xs:element name="artikli">
+	<!-- Definicija elementa za artikel z razširjenim tipom -->
+	<xs:element name="Artikel" type="art:RazsirenArtikelType" substitutionGroup="art:artikel"/>
+
+	<!-- Definicija elementa za artikle z razširjenim tipom -->
+	<xs:element name="Artikli">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element name="artikel" type="art:artikelType" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="Artikel" type="art:RazsirenArtikelType" minOccurs="0" maxOccurs="unbounded"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>

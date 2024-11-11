@@ -6,7 +6,7 @@
     <Cena>25.0</Cena>
     <Zaloga>75</Zaloga>
     <DobaviteljId>2</DobaviteljId>
-    <DatumZadnjeNabave>2024-11-11 12:32:31</DatumZadnjeNabave>
+    <DatumZadnjeNabave>2024-11-11 14:26:29</DatumZadnjeNabave>
   </Artikel>
   <Artikel artikelId="A2" status="aktiven">
     <Id>2</Id>
@@ -14,7 +14,7 @@
     <Cena>200</Cena>
     <Zaloga>200</Zaloga>
     <DobaviteljId>2</DobaviteljId>
-    <DatumZadnjeNabave>2024-11-11 12:32:30</DatumZadnjeNabave>
+    <DatumZadnjeNabave>2024-11-11 14:26:29</DatumZadnjeNabave>
   </Artikel>
   <Artikel artikelId="A3" status="aktiven">
     <Id>3</Id>
@@ -22,7 +22,7 @@
     <Cena>300</Cena>
     <Zaloga>50</Zaloga>
     <DobaviteljId>3</DobaviteljId>
-    <DatumZadnjeNabave>2024-11-11 12:32:30</DatumZadnjeNabave>
+    <DatumZadnjeNabave>2024-11-11 14:26:29</DatumZadnjeNabave>
   </Artikel>
   <Artikel artikelId="A4" status="aktiven">
     <Id>4</Id>
@@ -30,7 +30,7 @@
     <Cena>695</Cena>
     <Zaloga>150</Zaloga>
     <DobaviteljId>4</DobaviteljId>
-    <DatumZadnjeNabave>2024-11-11 12:32:30</DatumZadnjeNabave>
+    <DatumZadnjeNabave>2024-11-11 14:26:29</DatumZadnjeNabave>
   </Artikel>
   <Artikel artikelId="A5" status="aktiven">
     <Id>5</Id>
@@ -38,7 +38,7 @@
     <Cena>150</Cena>
     <Zaloga>80</Zaloga>
     <DobaviteljId>5</DobaviteljId>
-    <DatumZadnjeNabave>2024-11-11 12:32:30</DatumZadnjeNabave>
+    <DatumZadnjeNabave>2024-11-11 14:26:29</DatumZadnjeNabave>
   </Artikel>
   <Artikel artikelId="A67" status="aktiven">
     <Id>67</Id>
@@ -46,6 +46,6 @@
     <Cena>1</Cena>
     <Zaloga>100</Zaloga>
     <DobaviteljId>1</DobaviteljId>
-    <DatumZadnjeNabave>2024-11-11 12:32:31</DatumZadnjeNabave>
+    <DatumZadnjeNabave>2024-11-11 14:26:29</DatumZadnjeNabave>
   </Artikel>
 </Artikli>
