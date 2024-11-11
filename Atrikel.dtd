@@ -1,0 +1,30 @@
+<!DOCTYPE Artikli [
+    
+<!ENTITY % valuta "EUR">
+<!ENTITY % status "aktiven">
+<!ENTITY copyright "© 2024 My Company">
+
+<!ELEMENT Artikli (Artikel+, MetaPodatki?)>
+<!ELEMENT Artikel (Id, Naziv, Cena, Zaloga, DobaviteljId, DatumZadnjeNabave)>
+<!ELEMENT Id (#PCDATA)>
+<!ELEMENT Naziv (#PCDATA)>
+<!ELEMENT Cena (#PCDATA)>
+<!ELEMENT Zaloga (#PCDATA)>
+<!ELEMENT DobaviteljId (#PCDATA)>
+<!ELEMENT DatumZadnjeNabave (#PCDATA)>
+
+<!ELEMENT MetaPodatki ANY>
+
+<!ELEMENT Separator EMPTY>
+
+<!ATTLIST Artikel
+        artikelId ID #REQUIRED
+        status (aktiven|neaktiven) "%status"
+    >
+<!ATTLIST Cena
+        valuta (EUR|USD) "%valuta"
+    >
+<!ATTLIST Zaloga
+        enota (kos|kg|l) "kos"
+    >
+]>

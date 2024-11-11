@@ -1,0 +1,23 @@
+<!DOCTYPE Dobavitelji [
+    
+<!ENTITY % kontakt "kontakt@dobavitelj.com">
+<!ENTITY % davcna "12345678">
+
+<!ELEMENT Dobavitelji (Dobavitelj+)>
+<!ELEMENT Dobavitelj (Id, Naziv, Naslov, DavcnaStevilka, Kontakt, Opis)>
+<!ELEMENT Id (#PCDATA)>
+<!ELEMENT Naziv (#PCDATA)>
+<!ELEMENT Naslov (#PCDATA)>
+<!ELEMENT DavcnaStevilka (#PCDATA)>
+<!ELEMENT Kontakt (#PCDATA)>
+<!ELEMENT Opis (#PCDATA)>
+
+<!ELEMENT MetaPodatki ANY>
+
+<!ELEMENT Separator EMPTY>
+
+<!ATTLIST Dobavitelj
+        dobaviteljId ID #REQUIRED
+        status (aktiven|neaktiven) "aktiven"
+    >
+]>

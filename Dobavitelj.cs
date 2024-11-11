@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RIS_Naloga2
 {
-	internal class Dobavitelj
+	public class Dobavitelj
 	{
 		public int Id { get; set; }
 		public string Naziv { get; set; }

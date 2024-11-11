@@ -1,0 +1,16 @@
+﻿3a) Definicija besednjaka
+
+Za oba XML dokumenta pripravite 1 besednjak DTD. V definiciji besednjaka poskrbite za ustrezno kardinalnost
+in omejite nabor vrednosti, kjer je to možno in smiselno. Uporabite naslednje gradnike:
+
+interne entitete
+gradnik ANY
+gradnik EMPTY
+omejen nabor atributov
+unikatne vrednosti atributov
+
+3b) Validacija XML dokumentov 
+
+Obstoječo aplikacijo razširite in omogočite vpis novih artiklov oziroma dobaviteljev.
+Vsak nov dokument validirajte s pomočjo besednjaka DTD. V primeru napak preprečite vnos
+novih elementov in atributov, uporabnika opozorite o vrsti napake.

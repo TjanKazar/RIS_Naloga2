@@ -63,6 +63,20 @@ class Program
 			var d = prebrani_dobavitelji[0];
 			Console.WriteLine($"Prvi dobavitelj: Id={d.Id}, Naziv={d.Naziv}, Naslov={d.Naslov}, DavcnaStevilka={d.DavcnaStevilka}, Kontakt={d.Kontakt}, Opis={d.Opis}");
 		}
+
+
+		// 3. naloga testi
+
+		var novArtikel = new Artikel
+		{
+			Id = 67,
+			Naziv = "Nov Artikel",
+			Cena = 25.99m,
+			Zaloga = 100,
+			DobaviteljId = 1,
+			DatumZadnjeNabave = DateTime.Now
+		};
+		ProgramExtensions.DodajArtikel(novArtikel);
 	}
 
 	static void ShraniArtikle(List<Artikel> artikli)

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RIS_Naloga2
 {
-	internal class Artikel
+	public class Artikel
 	{
 		public int Id { get; set; }
 		public string Naziv { get; set; }

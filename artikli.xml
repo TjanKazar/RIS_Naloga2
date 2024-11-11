@@ -1,43 +1,51 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Artikli>
-  <Artikel>
+  <Artikel artikelId="A1" status="aktiven">
     <Id>1</Id>
     <Naziv>Spremenjeni artikel</Naziv>
-    <Cena>25,0</Cena>
+    <Cena>25.0</Cena>
     <Zaloga>75</Zaloga>
     <DobaviteljId>2</DobaviteljId>
-    <DatumZadnjeNabave>2024-10-20 18:52:21</DatumZadnjeNabave>
+    <DatumZadnjeNabave>2024-11-11 01:33:12</DatumZadnjeNabave>
   </Artikel>
-  <Artikel>
+  <Artikel artikelId="A2" status="aktiven">
     <Id>2</Id>
     <Naziv>Artikel 2</Naziv>
-    <Cena>20.0</Cena>
+    <Cena>200</Cena>
     <Zaloga>200</Zaloga>
     <DobaviteljId>2</DobaviteljId>
-    <DatumZadnjeNabave>2024-10-20 18:52:21</DatumZadnjeNabave>
+    <DatumZadnjeNabave>2024-11-11 01:33:12</DatumZadnjeNabave>
   </Artikel>
-  <Artikel>
+  <Artikel artikelId="A3" status="aktiven">
     <Id>3</Id>
     <Naziv>Artikel 3</Naziv>
-    <Cena>30.0</Cena>
+    <Cena>300</Cena>
     <Zaloga>50</Zaloga>
     <DobaviteljId>3</DobaviteljId>
-    <DatumZadnjeNabave>2024-10-20 18:52:21</DatumZadnjeNabave>
+    <DatumZadnjeNabave>2024-11-11 01:33:12</DatumZadnjeNabave>
   </Artikel>
-  <Artikel>
+  <Artikel artikelId="A4" status="aktiven">
     <Id>4</Id>
     <Naziv>Artikel 4</Naziv>
-    <Cena>69.5</Cena>
+    <Cena>695</Cena>
     <Zaloga>150</Zaloga>
     <DobaviteljId>4</DobaviteljId>
-    <DatumZadnjeNabave>2024-10-20 18:52:21</DatumZadnjeNabave>
+    <DatumZadnjeNabave>2024-11-11 01:33:12</DatumZadnjeNabave>
   </Artikel>
-  <Artikel>
+  <Artikel artikelId="A5" status="aktiven">
     <Id>5</Id>
     <Naziv>Artikel 5</Naziv>
-    <Cena>15.0</Cena>
+    <Cena>150</Cena>
     <Zaloga>80</Zaloga>
     <DobaviteljId>5</DobaviteljId>
-    <DatumZadnjeNabave>2024-10-20 18:52:21</DatumZadnjeNabave>
+    <DatumZadnjeNabave>2024-11-11 01:33:12</DatumZadnjeNabave>
+  </Artikel>
+  <Artikel artikelId="A67" status="aktiven">
+    <Id>67</Id>
+    <Naziv>Nov Artikel</Naziv>
+    <Cena>25.99</Cena>
+    <Zaloga>100</Zaloga>
+    <DobaviteljId>1</DobaviteljId>
+    <DatumZadnjeNabave>2024-11-11 01:33:12</DatumZadnjeNabave>
   </Artikel>
 </Artikli>
