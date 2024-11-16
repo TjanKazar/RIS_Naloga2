@@ -1,0 +1,25 @@
+
+Naloga 5:
+Priprava razširjene/napredne XML sheme (XSD)
+
+	Ustvarjeno shemo iz prejšnje naloge 4 razširite z lastnimi podatkovnimi
+	tipi ter definirajte vsaj pet kompleksnejših omejitev s pomoèjo
+	regularnih izrazov in uporabite naslednje gradnike:
+
+	- 'complexType's 'simpleContent' za razširjanje kompleksnih
+	podatkovnih tipov z atributi.
+
+	- 'complexType's 'complexContent' za razširjanje kompleksnih
+	podatkovnih tipov z elementi.
+
+	- izbrane podatkovne tipe deklarirajte v loèeni XML shemi in jih nato
+	uvozite oziroma vkljuèite v primarno shemo (include, import).
+
+	- vkljuèene "zunanje" podatkovne tipe preoblikujte (redefine).
+
+	- omogoèite razlièno poimenovanje izbranih elementov (substitutionGroup)".
+
+Validacija
+	Ustvarite (ali nadgradite že obstojeèo) konzolno aplikacijo,
+	kjer boste demonstrirali validacijo XML dokumenta, ki ga preverite
+	proti že ustvarjeni shemi.

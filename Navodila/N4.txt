@@ -1,0 +1,44 @@
+Naloga 4: Priprava XML sheme (XSD)
+
+Ustvarite XML shemo (XSD) za strukturiranje podatkov o artiklih in
+njihovih dobaviteljih. Pri tem upoštevajte naslednje zahteve in smernice:
+
+Osnovna XML shema - artikli
+
+•	Ciljni prostor imen: Doloèite namespace za shemo s poljubnim URL naslovom.
+
+•	Ustvarite glavni element artikli, ki bo vseboval seznam artiklov.
+
+•	Definirajte element artikel, ki predstavlja posamezen artikel.
+	Znotraj artikel vkljuèite naslednje elemente kot lokalne:
+
+	o	id (celo število): Unikatna številka artikla.
+	o	ime (niz): Naziv artikla.
+	o	cena (decimalno število): Cena artikla.
+	o	zaloga (celo število): Kolièina artiklov na zalogi.
+	o	dobaviteljId (celo število): Unikatna številka dobavitelja.
+	o	datumZadnjeNabave (datum in èas): Datum zadnje nabave artikla.
+
+•	Atributi artikla
+	o	Dodajte atribut dobavljiv (logièna vrednost), ki oznaèuje, ali je artikel trenutno dobavljiv.
+	o	Dodajte atribut tip (niz), ki predstavlja vrsto artikla.
+
+Definicija globalnih elementov
+
+•	Definirajte globalni element artikel, ki ga lahko uporabite kot 
+referenèni element.
+
+Osnovna XML shema – dobavitelji
+
+•	Podobno ustvarite tudi XML shemo za xml dokument, ki shranjuje dobavitelje.
+
+Validacija
+
+•	Ustvarite (ali nadgradite že obstojeèo) konzolno aplikacijo,
+kjer boste demonstrirali validacijo XML dokumenta, ki ga preverite
+proti že ustvarjeni shemi.
+
+Nasveti
+Razlikujte med globalnimi in lokalnimi elementi ter razmislite,
+katere še elemente bi bilo smiselno definirati kot globalne,
+da omogoèite ponovno uporabo?

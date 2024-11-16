@@ -1,0 +1,15 @@
+Ustvarite konzolno aplikacijo, ki bo omogočala hranjenje in branje podatkov. Vsebuje naj naslednje funkcije:
+
+1a) Shranjevanje podatkov na nestrukturiran način
+
+Shranjevanje artiklov (ime izdelka, cena izdelka, zaloge, dobavitelj) s pomočjo konzolne aplikacije v navaden tekstovni dokument. Vsak izdelek naj bo v svoji vrstici ločen s podpičjem, posamezni parametri artikla pa so lahko poljubno ločeni s tabulatorji, vejicami, pomišljaji.
+
+1b) Branje nestrukturiranih podatkov
+
+Poiščite artikle, ki jih dobavlja izbran dobavitelj, in med najdenimi poiščite tiste, ki imajo zalogo manj kot izbrano število. Izbrane artikle izpišite na konzolo in nov tekstovni dokument. Dodatno omogočite branje vseh artiklov.
+
+1c) Urejanje nestrukturiranih podatkov
+
+Implementirajte možnost znižanja cene za izbran odstotek (npr. 10%). Izdelke v "akciji" zapišite v nov dokument. 
+
+Uporabljamo razred StreamWriter in StreamReader. 

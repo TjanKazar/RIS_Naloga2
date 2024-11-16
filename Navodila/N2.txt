@@ -1,0 +1,17 @@
+Zapis podatkov v strukturirani obliki
+
+2a) Zapis artiklov v strukturirani obliki
+
+Zapišite podatke artiklov v strukturirani obliki XML (artikli.xml). Vključite: id artikla, naziv artikla, cena artikla, zaloga artikla, dobavitelj artikla (njegov ID), datum zadnje nabave... Artiklov naj bo vsaj 5.
+
+2b) Zapis dobaviteljev v strukturirani obliki
+
+ Pripravite podrobnejše podatke dobaviteljev (dobavitelji.xml). Vključite: id dobavitelja, naziv dobavitelja, naslov, davčna številka, kontakt, opis, ...
+
+Oba XML dokumenta medsebojno povežite: vsak artikel naj beleži id dobavitelja. Dobaviteljev naj bo vsaj 5. 
+
+Ponovno implementirajte funkcije iz Naloge 1:
+
+Shranjevanje podatkov na strukturiran način (v XML dokuemnt)
+Branje strukturiranih podatkov (iz XML dokumentov)
+Urejanje strukturiranih podatkov (v XML dokumentih)
